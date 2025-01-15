@@ -62,6 +62,5 @@ public class SubjectServiceImpl implements SubjectService{
         subject.setSubjectName(subjectName);
         return subjectRepository.save(subject);
     }
-
     
 }

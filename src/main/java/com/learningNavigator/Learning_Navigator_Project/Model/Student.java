@@ -1,7 +1,6 @@
 package com.learningNavigator.Learning_Navigator_Project.Model;
 
 import java.util.List;
-import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,10 +16,12 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Table(name="student")
 @Entity
+@NoArgsConstructor
 public class Student {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

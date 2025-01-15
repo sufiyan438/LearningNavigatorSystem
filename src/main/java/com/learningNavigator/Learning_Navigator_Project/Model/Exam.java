@@ -16,10 +16,12 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Table(name="exam")
 @Entity
+@NoArgsConstructor
 public class Exam {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

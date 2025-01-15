@@ -21,6 +21,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> globalExceptionHandler(Exception ex){
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("It can be one of the following errors:\n" + 
-                                                "- Subject code is not 5 letters long.");
+                                                "- Subject and/or Exam code is not 5 letters long.");
     }
 }

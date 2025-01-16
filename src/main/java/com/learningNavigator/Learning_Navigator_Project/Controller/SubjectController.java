@@ -53,7 +53,6 @@ public class SubjectController {
         subjectService.deleteSubject(subjectId);
         return ResponseEntity.ok().body("Subject deleted!");
     }
-    //not working
 
     @PutMapping("/{subjectId}")
     public ResponseEntity<SubjectResponse> updateSubject(@PathVariable String subjectId, @RequestBody PutSubjectRequest putSubjectRequest){

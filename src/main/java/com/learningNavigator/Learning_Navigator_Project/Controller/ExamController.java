@@ -53,7 +53,6 @@ public class ExamController {
         examService.deleteExam(examId);
         return ResponseEntity.ok().body("Exam deleted!");
     }
-    //NOT WORKING
     
     @PutMapping("/{examId}")
     public ResponseEntity<ExamResponse> updateExam(@PathVariable String examId, @Valid @RequestBody PutExamRequest putExamRequest){

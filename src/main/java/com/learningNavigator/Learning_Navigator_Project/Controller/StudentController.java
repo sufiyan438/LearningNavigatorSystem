@@ -54,7 +54,6 @@ public class StudentController {
         studentService.deleteStudent(studentId);
         return ResponseEntity.ok().body("Student deleted!");
     }
-    //NOT WORKING
 
     @PutMapping("/{studentId}")
     public ResponseEntity<StudentResponse> updateStudent(@PathVariable String studentId, @Valid @RequestBody PutStudentRequest putStudentRequest){

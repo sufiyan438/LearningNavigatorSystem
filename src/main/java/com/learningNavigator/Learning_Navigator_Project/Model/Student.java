@@ -34,7 +34,7 @@ public class Student {
     @Column(nullable=false)
     private String name;
 
-    @ManyToMany(cascade=CascadeType.ALL,
+    @ManyToMany(cascade={CascadeType.MERGE, CascadeType.PERSIST},
                 fetch=FetchType.LAZY)
     @JoinTable(
         name = "subjects_registered",

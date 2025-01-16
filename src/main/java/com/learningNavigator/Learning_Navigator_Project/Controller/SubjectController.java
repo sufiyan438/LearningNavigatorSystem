@@ -20,6 +20,7 @@ import jakarta.validation.Valid;
 import com.learningNavigator.Learning_Navigator_Project.Exchange.PostSubjectRequest;
 import com.learningNavigator.Learning_Navigator_Project.Exchange.PostSubjectResponse;
 import com.learningNavigator.Learning_Navigator_Project.Exchange.PutSubjectRequest;
+import com.learningNavigator.Learning_Navigator_Project.Exchange.SubjectResponse;
 import com.learningNavigator.Learning_Navigator_Project.Model.Subject;
 
 @RestController
@@ -30,14 +31,14 @@ public class SubjectController {
     private SubjectService subjectService;
 
     @GetMapping
-    public ResponseEntity<List<Subject>> getAllSubjects(){
-        List<Subject> subjectList = subjectService.getAllSubjects();
+    public ResponseEntity<List<SubjectResponse>> getAllSubjects(){
+        List<SubjectResponse> subjectList = subjectService.getAllSubjects();
         return ResponseEntity.ok().body(subjectList);
     }
 
-    @GetMapping("/{subjectId}")
-    public ResponseEntity<Subject> getSubjectById(@PathVariable String subjectId){
-        Subject subject = subjectService.getBySubjectId(subjectId);
+        @GetMapping("/{subjectId}")
+    public ResponseEntity<SubjectResponse> getSubjectById(@PathVariable String subjectId){
+        SubjectResponse subject = subjectService.getBySubjectId(subjectId);
         return ResponseEntity.ok().body(subject);
     }
 
@@ -55,8 +56,8 @@ public class SubjectController {
     //not working
 
     @PutMapping("/{subjectId}")
-    public ResponseEntity<Subject> updateSubject(@PathVariable String subjectId, @RequestBody PutSubjectRequest putSubjectRequest){
-        Subject subject = subjectService.updateSubject(subjectId, putSubjectRequest.getSubjectName());
+    public ResponseEntity<SubjectResponse> updateSubject(@PathVariable String subjectId, @RequestBody PutSubjectRequest putSubjectRequest){
+        SubjectResponse subject = subjectService.updateSubject(subjectId, putSubjectRequest.getSubjectName());
         return ResponseEntity.ok().body(subject);
     }
     

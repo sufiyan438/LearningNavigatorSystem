@@ -18,9 +18,19 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
     }
 
+    @ExceptionHandler(IdNotOfLengthException.class)
+    public ResponseEntity<?> idNotOfLengthException(IdNotOfLengthException ex){
+        return ResponseEntity.status(HttpStatus.LENGTH_REQUIRED).body(ex.getMessage());
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> globalExceptionHandler(Exception ex){
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("It can be one of the following errors:\n" + 
-                                                "- Subject and/or Exam code is not 5 letters long.");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
+                                                "It can be one of the following errors:\n" + 
+                                                "- Subject ID is not 5 letters long.\n" +
+                                                "- Exam ID is not 5 letters long.\n" + 
+                                                "- Student ID is not 5 letters long.\n" + 
+                                                "- Mapping is not supported.\n" +
+                                                "- Incorrect URL.");
     }
 }

@@ -1,14 +1,15 @@
 package com.learningNavigator.Learning_Navigator_Project.Service;
 
 import com.learningNavigator.Learning_Navigator_Project.Exchange.PostExamResponse;
-import com.learningNavigator.Learning_Navigator_Project.Model.Exam;
 
 import java.util.List;
 
+import com.learningNavigator.Learning_Navigator_Project.Exchange.ExamResponse;
+
 public interface ExamService {
-    List<Exam> getAllExams();
-    Exam getByExamId(String examId);
+    List<ExamResponse> getAllExams();
+    ExamResponse getByExamId(String examId);
     PostExamResponse createExam(String examId, String subjectId);
     void deleteExam(String examId);
-    Exam updateExam(String examId, String subjectId);
+    ExamResponse updateExam(String examId, String subjectId);
 }

@@ -14,6 +14,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
+import com.learningNavigator.Learning_Navigator_Project.Exchange.ExamResponse;
 import com.learningNavigator.Learning_Navigator_Project.Exchange.PostExamRequest;
 import com.learningNavigator.Learning_Navigator_Project.Exchange.PostExamResponse;
 import com.learningNavigator.Learning_Navigator_Project.Exchange.PutExamRequest;
@@ -30,14 +31,14 @@ public class ExamController {
     private ExamService examService;
 
     @GetMapping
-    public ResponseEntity<List<Exam>> getAllExams(){
-        List<Exam> examList = examService.getAllExams();
+    public ResponseEntity<List<ExamResponse>> getAllExams(){
+        List<ExamResponse> examList = examService.getAllExams();
         return ResponseEntity.ok().body(examList);
     }
 
     @GetMapping("/{examId}")
-    public ResponseEntity<Exam> getExamById(@PathVariable String examId){
-        Exam exam = examService.getByExamId(examId);
+    public ResponseEntity<ExamResponse> getExamById(@PathVariable String examId){
+        ExamResponse exam = examService.getByExamId(examId);
         return ResponseEntity.ok().body(exam);
     }
 
@@ -55,8 +56,8 @@ public class ExamController {
     //NOT WORKING
     
     @PutMapping("/{examId}")
-    public ResponseEntity<Exam> updateExam(@PathVariable String examId, @Valid @RequestBody PutExamRequest putExamRequest){
-        Exam exam = examService.updateExam(examId, putExamRequest.getSubjectId());
+    public ResponseEntity<ExamResponse> updateExam(@PathVariable String examId, @Valid @RequestBody PutExamRequest putExamRequest){
+        ExamResponse exam = examService.updateExam(examId, putExamRequest.getSubjectId());
         return ResponseEntity.ok().body(exam);
     }
 
